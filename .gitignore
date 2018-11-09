@@ -1,0 +1,47 @@
+#idea config
+.idea
+*.iml
+
+#eclipse config
+.setting
+.classpath
+.project
+
+#gradle config
+.gradle
+build
+
+#eclipse gradle plugin
+.egradle
+
+#maven config
+target
+
+#idea build path
+out
+
+#eclipse build path
+bin
+
+#svn config
+.svn
+
+#compiled class file
+*.class
+
+#virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# vert.x cache
+.vertx
+
+# zip
+*.tar.gz
+
+#log
+log
+*.log
+
+publish
+
+wx-game-launcher/data
