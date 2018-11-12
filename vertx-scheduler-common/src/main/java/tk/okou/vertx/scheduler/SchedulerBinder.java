@@ -18,7 +18,7 @@ public class SchedulerBinder {
         return this;
     }
     public SchedulerBinder job(Job jobOption) {
-        this.jobName = jobOption.jobName();
+        this.jobName = jobOption.getJobName();
         return this;
     }
 

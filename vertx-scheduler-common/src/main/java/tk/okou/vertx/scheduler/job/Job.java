@@ -1,9 +1,9 @@
 package tk.okou.vertx.scheduler.job;
 
+import io.vertx.codegen.annotations.DataObject;
+
+@DataObject
 public interface Job {
-    String HOURLY = "Scheduler:HourlyJob";
-    String DAILY = "Scheduler:DailyJob";
-    String WEEKLY = "Scheduler:WeeklyJob";
-    String pattern();
-    String jobName();
+    String getPattern();
+    String getJobName();
 }

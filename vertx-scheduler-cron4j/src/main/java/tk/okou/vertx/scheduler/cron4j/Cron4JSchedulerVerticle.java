@@ -94,7 +94,7 @@ public class Cron4JSchedulerVerticle extends SchedulerVerticle {
 
     @Override
     protected void addJob(Job job) {
-        scheduler.schedule(job.pattern(), () -> vertx.eventBus().publish(job.jobName(), null));
+        scheduler.schedule(job.getPattern(), () -> vertx.eventBus().publish(job.getJobName(), null));
     }
 
     @Override

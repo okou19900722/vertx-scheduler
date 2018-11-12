@@ -4,19 +4,14 @@ import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import it.sauronsoftware.cron4j.SchedulingPattern;
 import org.junit.Before;
 import org.junit.Test;
 import tk.okou.vertx.scheduler.SchedulerBinder;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.TimeZone;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class Cron4JSchedulerVerticleTest {
     private Vertx vertx;

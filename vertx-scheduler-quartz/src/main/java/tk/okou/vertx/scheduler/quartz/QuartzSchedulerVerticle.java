@@ -48,13 +48,13 @@ public class QuartzSchedulerVerticle extends SchedulerVerticle {
     protected void addJob(Job job) throws ParseException, SchedulerException {
         JobDetailImpl jobDetail = new JobDetailImpl();
         jobDetail.setJobClass(VertxJob.class);
-        jobDetail.setKey(new JobKey(job.jobName()));
+        jobDetail.setKey(new JobKey(job.getJobName()));
         JobDataMap jobDataMap = new JobDataMap();
         jobDataMap.put("vertx", vertx);
         jobDetail.setJobDataMap(jobDataMap);
         CronTriggerImpl trigger = new CronTriggerImpl();
-        trigger.setName(job.jobName());
-        trigger.setCronExpression(job.pattern());
+        trigger.setName(job.getJobName());
+        trigger.setCronExpression(job.getPattern());
         this.scheduler.scheduleJob(jobDetail, trigger);
     }
 }

@@ -25,7 +25,7 @@ public abstract class SchedulerVerticle extends AbstractVerticle {
     }
 
     protected Job createJob(JsonObject job) {
-        return new DefaultJob(job.getString("pattern"), job.getString("jobName"));
+        return new DefaultJob(job);
     }
 
     protected abstract void addJob(Job job) throws Exception;

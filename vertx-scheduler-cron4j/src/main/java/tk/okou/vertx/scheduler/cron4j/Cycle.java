@@ -1,11 +1,12 @@
 package tk.okou.vertx.scheduler.cron4j;
 
+import tk.okou.vertx.scheduler.Scheduler;
 import tk.okou.vertx.scheduler.job.Job;
 
 public enum Cycle implements Job {
-    HOURLY("0 * * * *", Job.HOURLY),
-    DAILY("0 0 * * *", Job.DAILY),
-    WEEKLY("0 0 * * Mon", Job.WEEKLY);
+    HOURLY("0 * * * *", Scheduler.HOURLY),
+    DAILY("0 0 * * *", Scheduler.DAILY),
+    WEEKLY("0 0 * * Mon", Scheduler.WEEKLY);
 
     public final String pattern, jobName;
 
@@ -15,12 +16,12 @@ public enum Cycle implements Job {
     }
 
     @Override
-    public String pattern() {
+    public String getPattern() {
         return pattern;
     }
 
     @Override
-    public String jobName() {
+    public String getJobName() {
         return jobName;
     }
 }
