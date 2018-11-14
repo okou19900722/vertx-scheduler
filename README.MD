@@ -1,0 +1,3 @@
+# vertx-scheduler
+
+使用vertx-scheduler在vertx中使用定时任务，定时任务通过eventBus来通知，所以按时eventBus的方式也可以监听定时任务的触发
