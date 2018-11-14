@@ -24,8 +24,13 @@ public class Cron4JSchedulerImpl extends AbstractScheduler implements Cron4JSche
         this.scheduler.start();
     }
 
-    private void addJob(String pattern, String jobName) {
+    @Override
+    public void stop() {
+        this.scheduler.stop();
+    }
 
+    private void addJob(String pattern, String jobName) {
+        this.addJob(pattern, jobName, true);
     }
 
     private void addJob(String pattern, String jobName, boolean publish) {

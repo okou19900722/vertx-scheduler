@@ -1,14 +1,15 @@
 package tk.okou.vertx.scheduler.quartz;
 
-import io.vertx.core.Vertx;
+import io.vertx.core.eventbus.EventBus;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 
 public class VertxJob implements Job {
     @Override
     public void execute(JobExecutionContext context) {
-        Vertx vertx = (Vertx) context.getMergedJobDataMap().get("vertx");
+        EventBus eventBus = (EventBus) context.getMergedJobDataMap().get("eventBus");
+        boolean publish = (Boolean) context.getMergedJobDataMap().get("publish");
         String jobName = context.getJobDetail().getKey().getName();
-        vertx.eventBus().publish(jobName, null);
+        eventBus.publish(jobName, null);
     }
 }

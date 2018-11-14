@@ -50,7 +50,8 @@ public class QuartzSchedulerVerticle extends SchedulerVerticle {
         jobDetail.setJobClass(VertxJob.class);
         jobDetail.setKey(new JobKey(job.getJobName()));
         JobDataMap jobDataMap = new JobDataMap();
-        jobDataMap.put("vertx", vertx);
+        jobDataMap.put("eventBus", vertx.eventBus());
+        jobDataMap.put("publish", true);
         jobDetail.setJobDataMap(jobDataMap);
         CronTriggerImpl trigger = new CronTriggerImpl();
         trigger.setName(job.getJobName());
