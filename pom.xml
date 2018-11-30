@@ -6,8 +6,8 @@
 
     <parent>
         <groupId>io.vertx</groupId>
-        <artifactId>vertx-parent</artifactId>
-        <version>14</version>
+        <artifactId>vertx-ext-parent</artifactId>
+        <version>34</version>
     </parent>
 
     <groupId>tk.okou</groupId>
@@ -22,6 +22,7 @@
 
     <properties>
         <vertx.version>3.6.0-SNAPSHOT</vertx.version>
+        <doc.skip>true</doc.skip>
     </properties>
 
     <dependencyManagement>
@@ -36,4 +37,21 @@
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-codegen</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-docgen</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

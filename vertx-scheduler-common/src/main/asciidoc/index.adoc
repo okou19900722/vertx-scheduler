@@ -1,0 +1,32 @@
+= Vertx scheduler
+:toc: left
+
+当编写 `Vert.x` 应用的时候，你可能需要一个任务调度器来周期性的执行某个任务。
+
+比如：每周执行、每天晚上12点执行等。这些是 ` {@link io.vertx.core.Vertx#setTimer} ` 和 ` {@link io.vertx.core.Vertx#setPeriodic} ` 无法简单完成的。
+
+使用vertx-scheduler，你可以很轻松的定制一个周期任务。
+
+若要在自己的项目中运用它，则需要在构建描述信息的 _dependencies_ 节点中添加如下信息：
+
+* Maven (在 `pom.xml` 文件中):
+
+[source,xml,subs="+attributes"]
+----
+<dependency>
+  <groupId>tk.okou</groupId>
+  <artifactId>vertx-scheduler-common</artifactId>
+  <version>${maven.version}</version>
+</dependency>
+----
+
+* Gradle (在 `build.gradle` 文件中):
+
+[source,groovy,subs="+attributes"]
+----
+compile 'tk.okou:vertx-scheduler:${maven.version}'
+----
+
+== 基本概念
+
+SchedulerVerticle

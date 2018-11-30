@@ -19,7 +19,7 @@ public class SchedulerTest {
     }
 
     @Test
-    public void testScheduler() throws InterruptedException {
+    public void testScheduler() throws Exception {
         Scheduler scheduler = Cron4JScheduler.create(vertx);
         CountDownLatch count = new CountDownLatch(1);
         scheduler.schedule("* * * * *", r -> {

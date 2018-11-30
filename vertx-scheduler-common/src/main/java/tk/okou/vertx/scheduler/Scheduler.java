@@ -1,5 +1,6 @@
 package tk.okou.vertx.scheduler;
 
+import io.vertx.codegen.annotations.GenIgnore;
 import io.vertx.codegen.annotations.VertxGen;
 import io.vertx.core.Handler;
 import tk.okou.vertx.scheduler.job.Job;
@@ -14,6 +15,7 @@ public interface Scheduler {
 
     void schedule(String pattern, String jobName);
 
+    @GenIgnore
     default void schedule(Job job) {
         schedule(job.getPattern(), job.getJobName());
     }
@@ -21,7 +23,7 @@ public interface Scheduler {
     default void schedule(String pattern, Handler<Void> handler) {
         schedule(pattern, UUID.randomUUID().toString(), handler);
     }
-
+    @GenIgnore
     default void schedule(Job job, Handler<Void> handler) {
         schedule(job.getPattern(), job.getJobName(), handler);
     }
