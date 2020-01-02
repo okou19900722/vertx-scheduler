@@ -21,7 +21,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <vertx.version>3.6.0-SNAPSHOT</vertx.version>
+        <vertx.version>3.8.4</vertx.version>
         <doc.skip>true</doc.skip>
     </properties>
 

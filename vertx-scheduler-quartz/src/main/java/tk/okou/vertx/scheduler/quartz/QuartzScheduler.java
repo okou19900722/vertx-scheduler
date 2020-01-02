@@ -1,12 +1,14 @@
 package tk.okou.vertx.scheduler.quartz;
 
 import io.vertx.codegen.annotations.VertxGen;
-import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
-import org.quartz.SchedulerException;
+import tk.okou.vertx.scheduler.InvalidPatternException;
 import tk.okou.vertx.scheduler.Scheduler;
+import tk.okou.vertx.scheduler.SchedulerException;
 import tk.okou.vertx.scheduler.job.Job;
 import tk.okou.vertx.scheduler.quartz.impl.QuartzSchedulerImpl;
+
+import java.text.ParseException;
 
 @VertxGen
 public interface QuartzScheduler extends Scheduler {
@@ -14,11 +16,8 @@ public interface QuartzScheduler extends Scheduler {
         return new QuartzSchedulerImpl(vertx);
     }
 
-    default void schedule(Cycle job) {
+    default void schedule(Cycle job) throws InvalidPatternException, SchedulerException {
         schedule((Job) job);
     }
 
-    default void schedule(Cycle job, Handler<Void> handler) {
-        schedule((Job) job, handler);
-    }
 }

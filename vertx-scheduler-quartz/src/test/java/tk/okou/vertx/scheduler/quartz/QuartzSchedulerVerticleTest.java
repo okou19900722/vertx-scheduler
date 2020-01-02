@@ -2,6 +2,7 @@ package tk.okou.vertx.scheduler.quartz;
 
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
+import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
@@ -37,21 +38,21 @@ public class QuartzSchedulerVerticleTest {
         options.setConfig(config);
         CountDownLatch count = new CountDownLatch(1);
         long start = System.currentTimeMillis();
-        Future<Void> future = Future.future();
+        Promise<Void> promise = Promise.promise();
         new SchedulerBinder(vertx).jobName(jobName).register(m -> {
             long end = System.currentTimeMillis();
             try {
                 assertTrue((end - start) < 1000);
-                future.complete();
+                promise.complete();
             } catch (Throwable t) {
-                future.fail(t);
+                promise.fail(t);
             } finally {
                 count.countDown();
             }
         });
         vertx.deployVerticle(QuartzSchedulerVerticle.class.getName(), options);
         count.await();
-        future.setHandler(it -> {
+        promise.future().setHandler(it -> {
             if (it.failed()) {
                 throw new RuntimeException(it.cause());
             }

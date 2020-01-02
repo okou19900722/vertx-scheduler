@@ -6,4 +6,7 @@ import io.vertx.codegen.annotations.DataObject;
 public interface Job {
     String getPattern();
     String getJobName();
+    default boolean publish() {
+        return true;
+    }
 }
